@@ -1,0 +1,83 @@
+apply plugin: 'com.android.application'
+apply plugin: 'kotlin-android'
+apply plugin: 'kotlin-android-extensions'
+apply plugin: 'kotlin-kapt'
+
+android {
+  compileSdkVersion 26
+  buildToolsVersion "26.0.1"
+  defaultConfig {
+    applicationId "com.nathanmkaya.residency"
+    minSdkVersion 15
+    targetSdkVersion 26
+    versionCode 1
+    versionName "1.0"
+    testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+    resConfigs "auto"
+  }
+  buildTypes {
+    release {
+      minifyEnabled false
+      proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+    }
+  }
+
+  kapt {
+    generateStubs = true
+    correctErrorTypes = true
+  }
+}
+
+project.ext {
+  daggerVersion = "2.11"
+}
+
+
+configurations.all {
+  resolutionStrategy {
+    force 'com.google.code.findbugs:jsr305:1.3.9', 'com.google.code.findbugs:jsr305:2.0.1'
+  }
+}
+
+dependencies {
+  implementation fileTree(include: ['*.jar'], dir: 'libs')
+  implementation "org.jetbrains.kotlin:kotlin-stdlib-jre8:$kotlin_version"
+  implementation 'com.android.support:appcompat-v7:26.0.1'
+  implementation 'com.android.support:support-v4:26.0.1'
+  implementation 'com.android.support:design:26.0.1'
+  implementation 'com.android.support:recyclerview-v7:26.0.1'
+  implementation 'com.android.support:cardview-v7:26.0.1'
+  implementation 'com.android.support.constraint:constraint-layout:1.0.2'
+  implementation 'com.google.firebase:firebase-database:11.2.0'
+  implementation 'com.google.firebase:firebase-storage:11.2.0'
+  implementation 'com.google.firebase:firebase-auth:11.2.0'
+  implementation 'com.google.firebase:firebase-messaging:11.2.0'
+  testImplementation 'junit:junit:4.12'
+  androidTestImplementation 'com.android.support.test:runner:1.0.0'
+  androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.0'
+  implementation 'io.reactivex.rxjava2:rxjava:2.1.2'
+  implementation 'io.reactivex.rxjava2:rxandroid:2.0.1'
+  implementation 'io.reactivex.rxjava2:rxkotlin:2.1.0'
+  implementation 'com.github.Mariovc:ImagePicker:1.2.0'
+  //implementation('com.firebaseui:firebase-ui:2.2.0')
+  // FirebaseUI Database only
+  implementation 'com.firebaseui:firebase-ui-database:2.2.0'
+  // FirebaseUI Auth only
+  implementation('com.firebaseui:firebase-ui-auth:2.2.0') { transitive = false }
+  // FirebaseUI Storage only
+  implementation('com.firebaseui:firebase-ui-storage:2.2.0') { transitive = false }
+  implementation 'com.stepstone.stepper:material-stepper:4.0.0'
+  implementation 'com.android.support:support-annotations:26.0.1'
+  implementation 'org.parceler:parceler-api:1.1.9'
+  kapt 'org.parceler:parceler:1.1.9'
+  implementation 'com.jakewharton.rxrelay2:rxrelay:2.0.0'
+  implementation 'pub.devrel:easypermissions:0.4.3'
+  implementation 'com.google.dagger:dagger-android-support:2.11'
+  kapt 'com.google.dagger:dagger-android-processor:2.11'
+  kapt 'com.google.dagger:dagger-compiler:2.11'
+  implementation 'com.facebook.fresco:fresco:1.5.0'
+  implementation 'com.afollestad.material-dialogs:core:0.9.4.7'
+  implementation 'com.yqritc:recyclerview-flexibledivider:1.4.0'
+}
+
+apply plugin: 'com.google.gms.google-services'
