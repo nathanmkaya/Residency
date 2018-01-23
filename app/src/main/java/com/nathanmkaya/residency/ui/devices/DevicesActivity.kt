@@ -26,8 +26,8 @@ class DevicesActivity : BaseActivity(), DeviceContract.View {
     val layoutManager = LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false)
     layoutManager.scrollToPosition(0)
     device_list.layoutManager = layoutManager
-    device_list.addItemDecoration(HorizontalDividerItemDecoration.Builder(this).build())
-    adapter = object : FirebaseRecyclerAdapter<Device, DeviceHolder>(Device::class.java, R.layout.device, DeviceHolder::class.java, DbReference.devices){
+    //device_list.addItemDecoration(HorizontalDividerItemDecoration.Builder(this).build())
+    adapter = object : FirebaseRecyclerAdapter<Device, DeviceHolder>(Device::class.java, R.layout.device_simple, DeviceHolder::class.java, DbReference.devices){
       override fun populateViewHolder(viewHolder: DeviceHolder?, model: Device?, position: Int) {
         model?.let { viewHolder?.bind(it) }
       }

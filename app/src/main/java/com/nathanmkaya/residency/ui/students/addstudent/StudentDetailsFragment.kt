@@ -2,7 +2,9 @@ package com.nathanmkaya.residency.ui.students.addstudent
 
 import android.content.Context
 import android.os.Bundle
+import android.support.annotation.UiThread
 import android.support.v4.app.Fragment
+import android.support.v7.app.AlertDialog
 import android.text.TextUtils
 import android.view.LayoutInflater
 import android.view.View
@@ -35,7 +37,12 @@ class StudentDetailsFragment : Fragment(), BlockingStep {
     callback?.complete()
   }
 
+  @UiThread
   override fun onNextClicked(callback: OnNextClickedCallback?) {
+    val builder = activity?.let { AlertDialog.Builder(it) }
+    builder?.setView(R.layout.fragment_student_details)
+    builder?.show()
+
     dataManager.saveData(
         Student(student_name.text.toString(), regNo.text.toString(), hostel.text.toString(),
             wing.text.toString(), room.text.toString()))
@@ -46,6 +53,7 @@ class StudentDetailsFragment : Fragment(), BlockingStep {
 
   }
 
+  @UiThread
   override fun verifyStep(): VerificationError? {
     if (TextUtils.isEmpty(student_name.text.toString()) || TextUtils.isEmpty(
         regNo.text.toString()) || TextUtils.isEmpty(
@@ -61,11 +69,10 @@ class StudentDetailsFragment : Fragment(), BlockingStep {
 
   }
 
-
-  override fun onCreateView(inflater: LayoutInflater?, container: ViewGroup?,
+  override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
       savedInstanceState: Bundle?): View? {
     // Inflate the layout for this fragment
-    return inflater!!.inflate(R.layout.fragment_student_details, container, false)
+    return inflater.inflate(R.layout.fragment_student_details, container, false)
   }
 
   override fun onAttach(context: Context?) {

@@ -4,6 +4,7 @@ import android.content.Context
 import android.graphics.Bitmap
 import android.os.Bundle
 import android.support.v4.app.Fragment
+import android.support.v7.app.AlertDialog
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -77,6 +78,8 @@ class ConfirmDetailsFragment : Fragment(), BlockingStep {
   }
 
   override fun onNextClicked(callback: OnNextClickedCallback?) {
+    val builder = activity?.let { AlertDialog.Builder(it) }
+    builder?.setView(R.layout.fragment_confirm_details)
 
   }
 
@@ -87,9 +90,8 @@ class ConfirmDetailsFragment : Fragment(), BlockingStep {
     }
   }
 
-  override fun onCreateView(inflater: LayoutInflater?, container: ViewGroup?,
-      savedInstanceState: Bundle?): View? {
+  override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
     // Inflate the layout for this fragment
-    return inflater!!.inflate(R.layout.fragment_confirm_details, container, false)
+    return inflater.inflate(R.layout.fragment_confirm_details, container, false)
   }
 }// Required empty public constructor

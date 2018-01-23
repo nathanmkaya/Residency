@@ -9,10 +9,12 @@ import android.support.v7.app.AppCompatActivity
 import android.view.Menu
 import android.view.MenuItem
 import android.view.View
+import com.google.firebase.auth.FirebaseAuth
 import com.nathanmkaya.residency.R
 import com.nathanmkaya.residency.R.id
 import com.nathanmkaya.residency.R.layout
 import com.nathanmkaya.residency.R.string
+import com.nathanmkaya.residency.ui.auth.LoginActivity
 import com.nathanmkaya.residency.ui.base.BaseContract.Presenter
 import com.nathanmkaya.residency.ui.devices.DevicesActivity
 import com.nathanmkaya.residency.ui.news.NewsActivity
@@ -38,6 +40,13 @@ open class BaseActivity : AppCompatActivity(), NavigationView.OnNavigationItemSe
     super.onCreate(savedInstanceState)
     //setContentView(layout.activity_base)
     root = layoutInflater.inflate(layout.activity_base, null)
+
+    FirebaseAuth.getInstance().currentUser?.let {
+      println(it.displayName)
+    } ?: run {
+      startActivity(Intent(this@BaseActivity, LoginActivity::class.java))
+      finish()
+    }
   }
 
   override fun onPostCreate(savedInstanceState: Bundle?) {

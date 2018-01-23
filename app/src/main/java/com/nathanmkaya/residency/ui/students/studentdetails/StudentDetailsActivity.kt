@@ -98,7 +98,7 @@ class StudentDetailsActivity : AppCompatActivity(), View {
         DbReference.devices.push().setValue(Device(type?.text.toString(), make?.text.toString(), serial?.text.toString(), reference))
         dialog.dismiss()
       }
-      onNegative { dialog, which ->
+      onNegative { dialog, _ ->
         dialog.dismiss()
       }
     }.build()

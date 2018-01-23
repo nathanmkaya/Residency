@@ -39,13 +39,13 @@ class App : Application(), HasActivityInjector {
   override fun onCreate() {
     super.onCreate()
     FirebaseDatabase.getInstance().setPersistenceEnabled(true)
-    FirebaseAuth.getInstance().signInAnonymously()
+    /*FirebaseAuth.getInstance().signInAnonymously()
     val user = FirebaseAuth.getInstance().currentUser
     if (user != null) {
       DbReference.keepSynced(true)
       Log.d("User", user.uid)
       //DbReference.users.child(user.getUid()).
-    }
+    }*/
 
     DaggerAppComponent.builder().application(this).build().inject(this)
 
