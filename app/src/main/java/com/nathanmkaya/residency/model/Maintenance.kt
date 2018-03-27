@@ -1,19 +1,17 @@
 package com.nathanmkaya.residency.model
 
-import java.util.Date
-
 class Maintenance {
-  var hostel: String
-  var wing: String
-  var issue: String
-  var datePosted = System.currentTimeMillis()
-  var dateFixed: Long = 0
-  var fixed = false
+    var hostel: String
+    var wing: String
+    var issue: String
+    var datePosted = System.currentTimeMillis()
+    var dateFixed: Long = 0
+    var fixed = false
 
-  constructor(hostel: String, wing: String, issue: String) {
-    this.hostel = hostel
-    this.wing = wing
-    this.issue = issue
-    this.datePosted = datePosted
-  }
+    constructor(hostel: String, wing: String, issue: String) {
+        this.hostel = hostel
+        this.wing = wing
+        this.issue = issue
+        this.datePosted = datePosted
+    }
 }

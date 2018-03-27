@@ -1,4 +1,4 @@
-package com.nathanmkaya.residency.injection.modules
+package com.nathanmkaya.residency.di.modules
 
 import com.nathanmkaya.residency.ui.auth.LoginActivity
 import com.nathanmkaya.residency.ui.auth.LoginActivityModule
@@ -21,21 +21,21 @@ import dagger.android.ContributesAndroidInjector
 @Module
 abstract class ActivityModule {
 
-  @ContributesAndroidInjector(modules = arrayOf(LoginActivityModule::class))
-  abstract fun bindLoginActivity(): LoginActivity
+    @ContributesAndroidInjector(modules = arrayOf(LoginActivityModule::class))
+    abstract fun bindLoginActivity(): LoginActivity
 
-  @ContributesAndroidInjector(modules = arrayOf(DevicesActivityModule::class))
-  abstract fun bindDevicesActivity(): DevicesActivity
+    @ContributesAndroidInjector(modules = arrayOf(DevicesActivityModule::class))
+    abstract fun bindDevicesActivity(): DevicesActivity
 
-  @ContributesAndroidInjector(modules = arrayOf(NewsActivityModule::class))
-  abstract fun bindNewsActivity(): NewsActivity
+    @ContributesAndroidInjector(modules = arrayOf(NewsActivityModule::class))
+    abstract fun bindNewsActivity(): NewsActivity
 
-  @ContributesAndroidInjector(modules = arrayOf(AddStudentActivityModule::class))
-  abstract fun bindAddStudentActivity(): AddStudentActivity
+    @ContributesAndroidInjector(modules = arrayOf(AddStudentActivityModule::class))
+    abstract fun bindAddStudentActivity(): AddStudentActivity
 
-  @ContributesAndroidInjector(modules = arrayOf(StudentDetailsActivityModule::class))
-  abstract fun bindStudentDetailsActivity(): StudentDetailsActivity
+    @ContributesAndroidInjector(modules = arrayOf(StudentDetailsActivityModule::class))
+    abstract fun bindStudentDetailsActivity(): StudentDetailsActivity
 
-  @ContributesAndroidInjector(modules = arrayOf(StudentsActivityModule::class))
-  abstract fun bindStudentsActivity(): StudentsActivity
+    @ContributesAndroidInjector(modules = arrayOf(StudentsActivityModule::class))
+    abstract fun bindStudentsActivity(): StudentsActivity
 }

@@ -9,7 +9,7 @@ import com.nathanmkaya.residency.ui.devices.DeviceContract.View
 
 class DevicePresenter(view: View) : DeviceContract.Presenter {
 
-  override fun start() {
-    Log.d("Presenter", "success")
-  }
+    override fun start() {
+        Log.d("Presenter", "success")
+    }
 }

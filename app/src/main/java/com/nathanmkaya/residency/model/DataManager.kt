@@ -20,11 +20,11 @@ import android.graphics.Bitmap
 
 interface DataManager {
 
-  fun saveData(data: Any?)
+    fun saveData(data: Any?)
 
-  fun getData(): Any?
+    fun getData(): Any?
 
-  fun saveImage(bitmap: Bitmap?)
+    fun saveImage(bitmap: Bitmap?)
 
-  fun getImage(): Bitmap?
+    fun getImage(): Bitmap?
 }

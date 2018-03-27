@@ -5,9 +5,9 @@ import com.nathanmkaya.residency.ui.students.studentdetails.StudentDetailsContra
 /**
  * Created by nathan on 8/14/17.
  */
-class StudentDetailsPresenter: Presenter {
-  override fun start() {
-    TODO(
-        "not implemented") //To change body of created functions use File | Settings | File Templates.
-  }
+class StudentDetailsPresenter : Presenter {
+    override fun start() {
+        TODO(
+                "not implemented") //To change body of created functions use File | Settings | File Templates.
+    }
 }
